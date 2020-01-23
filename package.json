@@ -1,7 +1,7 @@
 {
-  "name": "typescript-package-starter",
-  "version": "1.0.2",
-  "description": "TypeScript boilerplate for NPM or Github Packages",
+  "name": "browser-image-converter",
+  "version": "0.1.0",
+  "description": "Convert image to different formats (PNG, JPEG, GIF)",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
@@ -11,7 +11,6 @@
   },
   "keywords": [
     "typescript",
-    "github packages",
     "npm packages",
     "boilerplate"
   ],
@@ -19,7 +18,7 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dalenguyen/typescript-package-starter.git"
+    "url": "git+https://github.com/dalenguyen/browser-image-converter.git"
   },
   "devDependencies": {
     "@types/chai": "^4.2.7",
@@ -31,11 +30,7 @@
     "ts-node": "^8.6.2",
     "typescript": "~3.7.5"
   },
-  "dependencies": {},
   "engines": {
     "node": ">=8"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@dalenguyen"
   }
 }
