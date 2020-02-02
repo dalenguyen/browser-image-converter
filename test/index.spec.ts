@@ -1,8 +1,8 @@
-import { helloWorld } from './../src'
+import browserImageCoverter from './../src'
 import { expect } from 'chai'
 
-describe('helloWorld', () => {
-    it('Should return greetings', () => {
-        expect(helloWorld()).equals('Howdy!')
-    })
+describe('Browser Image Converter', () => {
+  it('test', () => {
+    console.log(browserImageCoverter)
+  })
 })

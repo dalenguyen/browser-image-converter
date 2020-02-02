@@ -1,21 +1,21 @@
-# TypeScript Package Starter
+# Browser Image Converter
 
-TypeScript boilerplate for NPM or Github Packages
+NPM pacakge or JavaScript file for converting and downloading different types images.
 
 ## Build project
 
 ```sh
-npm run build
+yarn build
 ```
 
-## Test pacakge
+## Test package
 
 ```sh
-npm test
+yarn test
 ```
 
 ## Deploy package
 
 ```sh
-npm run deploy
+yarn deploy
 ```

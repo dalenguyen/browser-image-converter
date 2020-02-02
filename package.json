@@ -5,8 +5,10 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "test": "mocha --timeout 60000 --exit -r ts-node/register test/**/*.spec.ts",
-    "build": "tsc",
+    "test": "mocha --timeout 60000 --exit -r ts-node/register -r jsdom-global/register test/**/*.spec.ts",
+    "start": "webpack-dev-server",
+    "watch": "webpack --watch",
+    "build": "webpack --mode production",
     "deploy": "npm publish"
   },
   "keywords": [
@@ -21,14 +23,22 @@
     "url": "git+https://github.com/dalenguyen/browser-image-converter.git"
   },
   "devDependencies": {
+    "@types/axios": "^0.14.0",
     "@types/chai": "^4.2.7",
     "@types/mocha": "^5.2.7",
     "@types/node": "^13.1.8",
+    "axios": "^0.19.2",
     "chai": "^4.2.0",
+    "html-webpack-plugin": "^3.2.0",
+    "jsdom-global": "^3.0.2",
     "mocha": "^7.0.0",
-    "tslint": "^6.0.0",
+    "ts-loader": "^6.2.1",
     "ts-node": "^8.6.2",
-    "typescript": "~3.7.5"
+    "tslint": "^6.0.0",
+    "typescript": "~3.7.5",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.2"
   },
   "engines": {
     "node": ">=8"
