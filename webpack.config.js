@@ -28,7 +28,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: 'Custom template',
+      title: 'Browser Image Converter | Dale Nguyen',
       inject: 'head',
       // Load a custom template (lodash by default)
       template: 'src/index.html'

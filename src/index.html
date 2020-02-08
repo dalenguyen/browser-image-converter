@@ -3,20 +3,53 @@
   <head>
     <meta charset="utf-8" />
     <title><%= htmlWebpackPlugin.options.title %></title>
+    <style>
+      div,
+      h1 {
+        margin: 40px;
+      }
+      button {
+        margin-left: 40px;
+        height: 40px;
+      }
+      input {
+        width: 100%;
+      }
+    </style>
   </head>
   <body>
-    <h1>Test Image Downloader</h1>
+    <h1>Browser Image Converter</h1>
+    <div>
+      <label for="image_input">Image URL</label>
+      <input
+        type="text"
+        name="image_input"
+        id="image_input"
+        value="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/FullMoon2010.jpg/1200px-FullMoon2010.jpg"
+      />
+    </div>
+    <div>
+      <label for="image_type">Image Type (JPEG, PNG, GIF)</label>
+      <input type="text" name="image_type" id="image_type" value="JPEG" />
+    </div>
+
+    <button id="download_image">Dowload Converted Image</button>
+
+    <div>
+      <a href="https://github.com/dalenguyen/browser-image-converter"
+        >Created by Dale Nguyen</a
+      >
+    </div>
     <script>
-      console.log(browserImageCoverter)
-      //   const test = browserImageCoverter.getImageBase64FromUrl(
-      //     'http://media.digitalnewsreport.org/wp-content/uploads/userphoto/2.jpg'
-      //   )
-      //   test.then(res => console.log(res))
-      //   browserImageCoverter.downloadImageWithType(
-      //     'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/FullMoon2010.jpg/1200px-FullMoon2010.jpg',
-      //     'test',
-      //     'png'
-      //   )
+      document
+        .getElementById('download_image')
+        .addEventListener('click', function() {
+          const imageUrl = document.getElementById('image_input').value
+          const imageType = document.getElementById('image_type').value
+
+          // Download image
+          browserImageCoverter.downloadImageWithType(imageUrl, imageType)
+        })
     </script>
   </body>
 </html>

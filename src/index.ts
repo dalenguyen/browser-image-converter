@@ -2,6 +2,7 @@ import axios, { AxiosRequestConfig } from 'axios'
 declare var window: any
 
 class BrowserImageCoverter {
+  imageTypes = ['JPEG', 'PNG', 'GIF']
   async getImageBase64FromUrl(url: string): Promise<string> {
     const options: AxiosRequestConfig = {
       method: 'GET',
@@ -9,15 +10,15 @@ class BrowserImageCoverter {
       responseType: 'arraybuffer'
     }
     const response = await axios(options).catch(error =>
-      console.error(`Cannot get captcha image!`)
+      console.error(`Cannot get image!`)
     )
     return Buffer.from(response['data'], 'binary').toString('base64')
   }
 
   private downloadImageFromBase64(
     base64: string,
-    fileName: string,
-    imageType: string
+    imageType: string,
+    fileName: string
   ): void {
     const imageEl = document.createElement('a')
     imageEl.href = `data:image/${imageType};base64,${base64}`
@@ -25,7 +26,6 @@ class BrowserImageCoverter {
     document.body.appendChild(imageEl)
     imageEl.click()
 
-    console.log(`Saved as ${fileName}.${imageType}`)
     // remove element
     if (imageEl.parentNode) {
       document.body.removeChild(imageEl)
@@ -34,12 +34,21 @@ class BrowserImageCoverter {
 
   downloadImageWithType = (
     url: string,
-    fileName: string,
-    imageType = 'jpeg'
+    imageType = 'jpeg',
+    fileName = 'converted_image'
   ): void => {
-    this.getImageBase64FromUrl(url).then(base64 => {
-      this.downloadImageFromBase64(base64, fileName, imageType)
-    })
+    if (url === '') {
+      throw new Error('Please check your image URL!')
+    }
+    if (!this.imageTypes.includes(imageType.toUpperCase())) {
+      throw new Error('Image type must be: JPEG, PNG or GIF')
+    }
+
+    this.getImageBase64FromUrl(url)
+      .then(base64 => {
+        this.downloadImageFromBase64(base64, imageType, fileName)
+      })
+      .catch(err => console.error(err))
   }
 }
 
