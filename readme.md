@@ -4,6 +4,8 @@
 
 NPM pacakge or JavaScript file for converting and downloading different types images. This package will only work on browser.
 
+Demo: https://browser-image-converter.surge.sh/
+
 ## Sample Usage
 
 Install package
